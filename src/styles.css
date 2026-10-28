@@ -1,0 +1,61 @@
+:root {
+  --bg: #f4f6fb; --card: #fff; --text: #1b2433; --muted: #6b7587; --border: #e1e6ef;
+  --primary: #3b5bdb; --primary-dark: #2f49b3;
+  --green: #1f9d55; --green-bg: #e6f6ec; --red: #d1344b; --red-bg: #fde8ec;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); }
+.app { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+header h1 { margin: 0; font-size: 26px; }
+.muted { color: var(--muted); } .small { font-size: 13px; margin: 2px 0; }
+.mono { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
+
+.layout { display: grid; grid-template-columns: 320px 1fr; gap: 20px; align-items: start; margin-top: 16px; }
+aside, main { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+@media (max-width: 800px) { .layout { grid-template-columns: 1fr; } }
+
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+.card h2 { margin: 0 0 12px; font-size: 18px; }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.card-header h2 { margin: 0; }
+
+form { display: flex; flex-direction: column; gap: 12px; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); flex: 1; }
+input, select { padding: 9px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; color: var(--text); background: #fff; width: 100%; }
+input:focus, select:focus { outline: 2px solid #c5d0fa; border-color: var(--primary); }
+.row { display: flex; gap: 12px; } @media (max-width: 500px) { .row { flex-direction: column; } }
+.inline { display: flex; gap: 8px; }
+
+button { padding: 9px 14px; border: 0; border-radius: 8px; background: var(--primary); color: #fff; font-size: 14px; font-weight: 600; cursor: pointer; }
+button:hover:not(:disabled) { background: var(--primary-dark); }
+button:disabled { opacity: .5; cursor: not-allowed; }
+button.secondary { background: #eef1f8; color: var(--text); white-space: nowrap; }
+button.secondary:hover:not(:disabled) { background: #e1e6f2; }
+
+.account-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; max-height: 340px; overflow-y: auto; }
+.account-item { width: 100%; display: flex; justify-content: space-between; gap: 8px; background: #f7f9fd; color: var(--text); border: 1px solid var(--border); text-align: left; }
+.account-item:hover:not(:disabled) { background: #eef2fb; }
+.account-item.active { border-color: var(--primary); background: #eaeffd; }
+.account-name { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.account-balance { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.balance-card { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.balance-card h2 { margin-bottom: 4px; } .balance-card .small { word-break: break-all; }
+.balance { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; }
+.balance strong { font-size: 32px; font-variant-numeric: tabular-nums; }
+
+.msg { margin-top: 12px; padding: 10px 12px; border-radius: 8px; font-size: 14px; }
+.msg.error { background: var(--red-bg); color: var(--red); }
+.msg.success { background: var(--green-bg); color: var(--green); }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .03em; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.badge { padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; text-transform: capitalize; }
+.badge.credit { background: var(--green-bg); color: var(--green); }
+.badge.debit { background: var(--red-bg); color: var(--red); }
+
+.pager { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 12px; font-size: 14px; color: var(--muted); flex-wrap: wrap; }
+.card-header select { width: auto; }
